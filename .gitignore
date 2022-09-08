@@ -58,3 +58,8 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Vuforia
+
+Packages/com.ptc.vuforia.engine-10.9.3.tgz
+Assets/Resources/VuforiaConfiguration.asset.meta
+Assets/Resources/VuforiaConfiguration.asset
