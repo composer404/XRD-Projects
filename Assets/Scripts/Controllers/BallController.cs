@@ -26,7 +26,7 @@ public class BallController : MonoBehaviour
 
     public void Spawn()
     {
-        gameObject.transform.position = new Vector3(0, 0.01f, 0);
+        gameObject.transform.position = this.startPosition;
         this.rb.velocity = new Vector3(0, 0, 0);
     }
 
