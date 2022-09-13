@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BallController : MonoBehaviour
 {
@@ -6,6 +7,11 @@ public class BallController : MonoBehaviour
     private float speed;
     private Rigidbody rb;
     private Vector3 startPosition;
+    
+    [SerializeField]
+    private PointsManager _PointsManager;
+
+    public UnityEvent showStartButton;
 
     void Start()
     {
@@ -19,9 +25,15 @@ public class BallController : MonoBehaviour
     }
 
     //! HERE IT SHOULD BE A BUTTON ON A SCREEN TO START GAME AND ADD VELOCITY AND APPEARS AGAIN AFTER EACH POINT
+
+    public void StartGame()
+    {
+        this.rb.velocity = GenerateStartDirection()/8;
+    }
+    
     void OnMouseDown()
     {
-        this.rb.velocity = GenerateStartDirection();
+        //this.rb.velocity = GenerateStartDirection();
         AudioManager.GetInstance().PlayRolling();
     }
 
@@ -32,7 +44,7 @@ public class BallController : MonoBehaviour
     {
         gameObject.transform.position = this.startPosition;
         this.rb.velocity = new Vector3(0, 0, 0);
-        AudioManager.GetInstance().PlayRespawn();
+     //   AudioManager.GetInstance().PlayRespawn();
     }
 
     public void OnTriggerEnter(Collider other)
@@ -40,16 +52,21 @@ public class BallController : MonoBehaviour
         string tag = other.gameObject.tag;
         if (tag == TagEnumClass.LEFT_STOP_WALL)
         {
+            _PointsManager.AddRightPoint();
             //! HERE WE NEED TO ADD POINTS USING "PointsManager"
             print("Right point");
         }
 
         if (tag == TagEnumClass.RIGHT_STOP_WALL)
         {
+            _PointsManager.AddLeftPoint();
             //! HERE WE NEED TO ADD POINTS USING "PointsManager"
             print("left point");
         }
         Spawn();
+        //Start game without pressing the button each time maybe...
+        //StartGame();
+        showStartButton.Invoke();
     }
 
     private Vector3 GenerateStartDirection()
