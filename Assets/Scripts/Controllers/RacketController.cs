@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RacketController : MonoBehaviour
@@ -13,13 +11,6 @@ public class RacketController : MonoBehaviour
 
     [SerializeField]
     private GameObject topWall;
-
-    void Start() { }
-
-    void Update()
-    {
-
-    }
 
     void FixedUpdate()
     {

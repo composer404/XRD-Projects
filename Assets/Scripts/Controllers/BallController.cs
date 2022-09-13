@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-    [SerializeField]
-    private float speed = 0.01f;
 
-
-    Rigidbody rb;
-    Vector3 startPosition;
+    private float speed;
+    private Rigidbody rb;
+    private Vector3 startPosition;
 
     void Start()
     {
+        this.speed = (PlayerPrefs.GetFloat(PrefsEnumClass.BALL_SPEED) / 100) * 10;
+        if (this.speed == 0)
+        {
+            this.speed = 0.5f;
+        }
         this.rb = gameObject.GetComponent<Rigidbody>();
         this.startPosition = gameObject.transform.position;
     }
