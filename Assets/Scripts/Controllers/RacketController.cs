@@ -34,6 +34,7 @@ public class RacketController : MonoBehaviour
         if (bottomX <= this.bottomWall.transform.position.x || topX >= this.topWall.transform.position.x)
         {
             this.speed = -this.speed;
+            AudioManager.GetInstance().PlayWall();
         }
     }
 }

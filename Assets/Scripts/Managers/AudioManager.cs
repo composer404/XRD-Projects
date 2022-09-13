@@ -22,10 +22,7 @@ public class AudioManager : MonoBehaviour
     #endregion
 
     [SerializeField]
-    private AudioSource menuOption;
-
-    [SerializeField]
-    private AudioSource menuTheme;
+    private AudioSource menuItemHover;
 
     [SerializeField]
     private AudioSource bounce;
@@ -34,7 +31,7 @@ public class AudioManager : MonoBehaviour
     private AudioSource lose;
 
     [SerializeField]
-    private AudioSource ballTest;
+    private AudioSource ballOut;
 
     [SerializeField]
     private AudioSource score;
@@ -50,15 +47,11 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField]
     private AudioSource rolling;
+    
 
-    public void PlayMenuOption()
+    public void PlayMenuItemHover()
     {
-        menuOption.Play();
-    }
-
-    public void PlayTheme()
-    {
-        menuTheme.Play();
+        menuItemHover.Play();
     }
 
     public void PlayBounce()
@@ -71,9 +64,9 @@ public class AudioManager : MonoBehaviour
         lose.Play();
     }
 
-    public void PlayOut()
+    public void PlayBallOut()
     {
-        ballTest.Play();
+        ballOut.Play();
     }
 
     public void PlayScore()

@@ -19,6 +19,7 @@ public class BallController : MonoBehaviour
     void OnMouseDown()
     {
         this.rb.velocity = GenerateStartDirection();
+        AudioManager.GetInstance().PlayRolling();
     }
 
     void Update()
@@ -28,6 +29,7 @@ public class BallController : MonoBehaviour
     {
         gameObject.transform.position = this.startPosition;
         this.rb.velocity = new Vector3(0, 0, 0);
+        AudioManager.GetInstance().PlayRespawn();
     }
 
     public void OnTriggerEnter(Collider other)
@@ -44,7 +46,6 @@ public class BallController : MonoBehaviour
             //! HERE WE NEED TO ADD POINTS USING "PointsManager"
             print("left point");
         }
-
         Spawn();
     }
 
