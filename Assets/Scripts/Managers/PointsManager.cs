@@ -88,9 +88,6 @@ public class PointsManager : MonoBehaviour
     private void Finish()
     {
         this.win = true;
-        this.finalDialog.SetActive(true);
-        this.gameOverText.SetActive(true);
         this.StopGame();
     }
-
 }
