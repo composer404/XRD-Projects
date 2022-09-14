@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LeftSideStop
   - RightSideStop
+  - Limiter
   layers:
   - Default
   - TransparentFX

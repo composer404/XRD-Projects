@@ -1,17 +1,14 @@
 using UnityEngine;
-using UnityEngine.Events;
+// using UnityEngine.Events;
 
 public class BallController : MonoBehaviour
 {
+    [SerializeField]
+    private PointsManager pointsManager;
 
     private float speed;
     private Rigidbody rb;
     private Vector3 startPosition;
-    
-    [SerializeField]
-    private PointsManager _PointsManager;
-
-    public UnityEvent showStartButton;
 
     void Start()
     {
@@ -24,17 +21,9 @@ public class BallController : MonoBehaviour
         this.startPosition = gameObject.transform.position;
     }
 
-    //! HERE IT SHOULD BE A BUTTON ON A SCREEN TO START GAME AND ADD VELOCITY AND APPEARS AGAIN AFTER EACH POINT
-
     public void StartGame()
     {
-        this.rb.velocity = GenerateStartDirection()/8;
-    }
-    
-    void OnMouseDown()
-    {
-        //this.rb.velocity = GenerateStartDirection();
-        AudioManager.GetInstance().PlayRolling();
+        this.rb.velocity = GenerateStartDirection();
     }
 
     void Update()
@@ -44,29 +33,30 @@ public class BallController : MonoBehaviour
     {
         gameObject.transform.position = this.startPosition;
         this.rb.velocity = new Vector3(0, 0, 0);
-     //   AudioManager.GetInstance().PlayRespawn();
+        AudioManager.GetInstance().PlayRespawn();
     }
 
     public void OnTriggerEnter(Collider other)
     {
         string tag = other.gameObject.tag;
+        this.VerifyPoint(tag);
+    }
+
+    private void VerifyPoint(string tag)
+    {
         if (tag == TagEnumClass.LEFT_STOP_WALL)
         {
-            _PointsManager.AddRightPoint();
-            //! HERE WE NEED TO ADD POINTS USING "PointsManager"
+            pointsManager.AddRightPoint();
             print("Right point");
         }
 
         if (tag == TagEnumClass.RIGHT_STOP_WALL)
         {
-            _PointsManager.AddLeftPoint();
-            //! HERE WE NEED TO ADD POINTS USING "PointsManager"
+            pointsManager.AddLeftPoint();
             print("left point");
         }
         Spawn();
-        //Start game without pressing the button each time maybe...
-        //StartGame();
-        showStartButton.Invoke();
+        StartGame();
     }
 
     private Vector3 GenerateStartDirection()
