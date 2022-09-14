@@ -49,19 +49,43 @@ public class BallController : MonoBehaviour
 
     private void VerifyPoint(string tag)
     {
-        if (tag == TagEnumClass.LEFT_STOP_WALL)
+        if (tag == TagEnumClass.LEFT_STOP_WALL || tag == TagEnumClass.RIGHT_STOP_WALL)
         {
-            pointsManager.AddRightPoint();
-            print("Right point");
-        }
+            if (tag == TagEnumClass.LEFT_STOP_WALL)
+            {
+                pointsManager.AddRightPoint();
+                print("Right point");
+            }
 
-        if (tag == TagEnumClass.RIGHT_STOP_WALL)
-        {
-            pointsManager.AddLeftPoint();
-            print("left point");
+            if (tag == TagEnumClass.RIGHT_STOP_WALL)
+            {
+                pointsManager.AddLeftPoint();
+                print("left point");
+            }
+            if (this.CheckWin())
+            {
+                return;
+            }
+            Spawn();
+            StartGame();
         }
-        Spawn();
-        StartGame();
+    }
+
+    private bool CheckWin()
+    {
+        if (this.pointsManager.GetWin())
+        {
+            this.StopBall();
+            return true;
+        }
+        return false;
+    }
+
+    private void StopBall()
+    {
+        this.rb.velocity = Vector3.zero;
+        this.rb.angularVelocity = Vector3.zero;
+        gameObject.transform.position = this.startPosition;
     }
 
     private void VerifyLimiter(string tag)

@@ -912,6 +912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.001
   bottomWall: {fileID: 1090344834}
+  pointsManager: {fileID: 0}
   topWall: {fileID: 645573473}
 --- !u!65 &265071716
 BoxCollider:
@@ -1386,7 +1387,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &367112018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3871,10 +3872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acdf8eff648a85f48a783f7a4e624669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _PointsManager: {fileID: 0}
-  showStartButton:
-    m_PersistentCalls:
-      m_Calls: []
+  pointsManager: {fileID: 0}
 --- !u!1 &1128168286
 GameObject:
   m_ObjectHideFlags: 0

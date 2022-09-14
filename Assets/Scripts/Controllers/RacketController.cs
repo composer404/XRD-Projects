@@ -17,7 +17,7 @@ public class RacketController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!this.pointsManager.GetGameState())
+        if (!this.pointsManager.GetGameState() || this.pointsManager.GetWin())
         {
             return;
         }
