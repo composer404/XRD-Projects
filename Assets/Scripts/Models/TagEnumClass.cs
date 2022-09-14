@@ -2,7 +2,8 @@ public class TagEnumClass
 {
     public const string
         LEFT_STOP_WALL = "LeftSideStop",
-        RIGHT_STOP_WALL = "RightSideStop";
+        RIGHT_STOP_WALL = "RightSideStop",
+        LIMITER = "Limiter";
 }
 
 public class PrefsEnumClass

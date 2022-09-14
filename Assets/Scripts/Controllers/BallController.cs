@@ -1,5 +1,4 @@
 using UnityEngine;
-// using UnityEngine.Events;
 
 public class BallController : MonoBehaviour
 {
@@ -39,6 +38,8 @@ public class BallController : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         string tag = other.gameObject.tag;
+
+        this.VerifyLimiter(tag);
         this.VerifyPoint(tag);
     }
 
@@ -57,6 +58,15 @@ public class BallController : MonoBehaviour
         }
         Spawn();
         StartGame();
+    }
+
+    private void VerifyLimiter(string tag)
+    {
+        if (tag == TagEnumClass.LIMITER)
+        {
+            Spawn();
+            StartGame();
+        }
     }
 
     private Vector3 GenerateStartDirection()
