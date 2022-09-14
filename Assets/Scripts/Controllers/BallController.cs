@@ -22,6 +22,10 @@ public class BallController : MonoBehaviour
 
     public void StartGame()
     {
+        if (!this.pointsManager.GetGameState())
+        {
+            this.pointsManager.StartGame();
+        }
         this.rb.velocity = GenerateStartDirection();
     }
 

@@ -717,6 +717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.001
   bottomWall: {fileID: 1090344834}
+  pointsManager: {fileID: 395434542}
   topWall: {fileID: 645573473}
 --- !u!65 &265071716
 BoxCollider:
@@ -1074,6 +1075,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   searchingText: {fileID: 2025029738}
+  pointsManager: {fileID: 395434542}
+  startButton: {fileID: 395525293}
 --- !u!1 &395434541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,7 +1140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &395525294
 RectTransform:
   m_ObjectHideFlags: 0

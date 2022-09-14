@@ -7,12 +7,19 @@ public class VuforiaManager : MonoBehaviour
     [SerializeField]
     private Text searchingText;
 
+    [SerializeField]
+    private PointsManager pointsManager;
+
+    [SerializeField]
+    private GameObject startButton;
+
     private bool racketFound;
     private bool boardFound;
 
     void Update()
     {
         this.ManageSearchingText();
+        this.ManageStartButton();
     }
 
     /* --------------------------------- RACKET --------------------------------- */
@@ -45,9 +52,23 @@ public class VuforiaManager : MonoBehaviour
     {
         if (racketFound && boardFound)
         {
-            searchingText.enabled = false;
+            this.searchingText.enabled = false;
             return;
         }
-        searchingText.enabled = true;
+        this.searchingText.enabled = true;
+    }
+
+    private void ManageStartButton()
+    {
+        if (!this.pointsManager.GetGameState())
+        {
+
+            if (racketFound && boardFound)
+            {
+                this.startButton.SetActive(true);
+                return;
+            }
+            this.startButton.SetActive(false);
+        }
     }
 }

@@ -10,10 +10,17 @@ public class RacketController : MonoBehaviour
     private GameObject bottomWall;
 
     [SerializeField]
+    private PointsManager pointsManager;
+
+    [SerializeField]
     private GameObject topWall;
 
     void FixedUpdate()
     {
+        if (!this.pointsManager.GetGameState())
+        {
+            return;
+        }
         DetectDirection();
         this.transform.position += new Vector3(speed, 0, 0);
     }
