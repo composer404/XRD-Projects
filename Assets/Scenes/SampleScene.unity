@@ -2020,7 +2020,7 @@ MonoBehaviour:
   finalDialog: {fileID: 376307907}
   congratsText: {fileID: 399565692}
   gameOverText: {fileID: 659750901}
-  pointsToWin: 1
+  pointsToWin: 2
 --- !u!4 &395434543
 Transform:
   m_ObjectHideFlags: 0
@@ -6164,13 +6164,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: qr_good
+  mTrackableName: qr_oliwer
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/PingPong.xml
-  mAspectRatio: 1.2587143
+  mAspectRatio: 1.2334
   mImageTargetType: 0
-  mWidth: 0.035
-  mHeight: 0.044055
+  mWidth: 0.045
+  mHeight: 0.055503003
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0
@@ -6190,7 +6190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1728576737}
   mHiddenRoot: {fileID: 0}
-  mTargetName: qr_good
+  mTargetName: qr_oliwer
   mDatasetName: Vuforia/PingPong.xml
   mCastedBehaviour: {fileID: 1728576737}
   mMeshFilter: {fileID: 0}
